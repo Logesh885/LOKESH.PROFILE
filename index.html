@@ -9,12 +9,21 @@
 body {
   margin:0;
   font-family: 'Segoe UI', Arial;
-  background: linear-gradient(135deg, #000000, #1a1a1a);
+  background: linear-gradient(270deg, #000000, #1a1a1a, #000000);
+  background-size: 600% 600%;
+  animation: bgMove 10s ease infinite;
   color: white;
   text-align:center;
 }
 
-/* Full screen center */
+/* Background animation */
+@keyframes bgMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Center container */
 .container {
   min-height: 100vh;
   display: flex;
@@ -25,18 +34,27 @@ body {
 
 /* Profile Image */
 img {
-  width:140px;
-  height:140px;
+  width:150px;
+  height:150px;
   border-radius:50%;
   border:4px solid #ff0050;
   object-fit: cover;
-  box-shadow: 0 0 20px #ff0050;
+  box-shadow: 0 0 25px #ff0050, 0 0 50px #ff0050;
+  animation: pulse 2s infinite;
+}
+
+/* Image glow animation */
+@keyframes pulse {
+  0% {box-shadow: 0 0 20px #ff0050;}
+  50% {box-shadow: 0 0 40px #ff0050;}
+  100% {box-shadow: 0 0 20px #ff0050;}
 }
 
 /* Name */
 h1 {
   margin:15px 0 5px;
-  font-size:28px;
+  font-size:30px;
+  text-shadow: 0 0 10px #ff0050;
 }
 
 /* Bio */
@@ -48,22 +66,34 @@ p {
 /* Button */
 button {
   display:block;
-  width:230px;
-  margin:20px auto;
-  padding:14px;
+  width:240px;
+  margin:25px auto;
+  padding:15px;
   border:none;
   border-radius:30px;
   background:#ff0050;
   color:white;
-  font-size:16px;
+  font-size:17px;
   cursor:pointer;
   transition:0.3s;
+  box-shadow: 0 0 15px #ff0050;
 }
 
 button:hover {
   background:white;
   color:black;
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 0 25px white;
+}
+
+/* Fade-in animation */
+.container {
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
 }
 </style>
 
@@ -79,7 +109,7 @@ button:hover {
 
 <p>Dream big 📈💭 | Peace > Everything ✨</p>
 
-<button onclick="openInsta()">Follow Me On Instagram 🙂</button>
+<button onclick="openInsta()">🔥 Follow Me On Instagram</button>
 
 </div>
 
